@@ -13,6 +13,13 @@ const Hero: React.FC = () => {
     setLoaded(true);
   }, []);
   
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <section className="relative min-h-screen pt-24 px-6 md:px-12 lg:px-24">
       {/* Background gradient */}
@@ -55,7 +62,10 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 animate-fade-in opacity-0" style={{ animationDelay: '1.8s', animationFillMode: 'forwards' }}>
               <PlansButton />
               
-              <button className="group flex items-center gap-2 py-3 px-1 font-medium text-foreground hover:text-s4-blue transition-colors">
+              <button 
+                onClick={scrollToAbout} 
+                className="group flex items-center gap-2 py-3 px-1 font-medium text-foreground hover:text-s4-blue transition-colors"
+              >
                 <span>Saiba mais</span>
                 <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
               </button>
