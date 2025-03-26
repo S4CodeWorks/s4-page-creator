@@ -10,11 +10,11 @@ type CodeSnippet = {
 const codeSnippets: CodeSnippet[] = [
   {
     language: 'HTML',
-    code: '<div class="s4-container">\n  <h1>S4 CodeWorks</h1>\n  <p>Criando experiências digitais</p>\n</div>'
+    code: '<div class="s4-container">\n  <h1>S4 CodeWorks</h1>\n  <p>Criando experiências digitais</p>\n  <button class="s4-button">Ver Planos</button>\n</div>'
   },
   {
     language: 'CSS',
-    code: '.s4-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\nh1 {\n  color: var(--primary);\n}'
+    code: '.s4-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  backdrop-filter: blur(8px);\n}\n\n.s4-button {\n  background: linear-gradient(to right, #00C2FF, #6600FF);\n}'
   },
   {
     language: 'JavaScript',
@@ -22,7 +22,7 @@ const codeSnippets: CodeSnippet[] = [
   },
   {
     language: 'React',
-    code: 'function Button({ children }) {\n  return (\n    <button className="s4-button">\n      {children}\n    </button>\n  );\n}'
+    code: 'function Button({ children }) {\n  return (\n    <button className="s4-button">\n      {children}\n      <span className="s4-button-shine" />\n    </button>\n  );\n}'
   }
 ];
 
@@ -65,14 +65,18 @@ const CodeAnimation: React.FC<CodeAnimationProps> = ({ className }) => {
   }, [currentSnippetIndex]);
   
   return (
-    <div className={cn("font-code rounded-lg overflow-hidden glass-dark p-4 w-full max-w-md", className)}>
-      <div className="flex items-center justify-between mb-2">
+    <div className={cn(
+      "font-code rounded-xl overflow-hidden glass-dark p-6 w-full max-w-md border border-white/10",
+      "shadow-[0_0_15px_rgba(0,194,255,0.15)] hover:shadow-[0_0_25px_rgba(0,194,255,0.25)] transition-all duration-500",
+      className
+    )}>
+      <div className="flex items-center justify-between mb-4">
         <div className="flex space-x-2">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
-        <div className={cn("text-sm font-semibold", languageClass)}>
+        <div className={cn("text-sm font-semibold px-3 py-1 rounded-full glass", languageClass)}>
           {codeSnippets[currentSnippetIndex].language}
         </div>
       </div>

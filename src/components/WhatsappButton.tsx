@@ -18,9 +18,9 @@ const WhatsappButton: React.FC<WhatsappButtonProps> = ({ phoneNumber, className 
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "flex items-center gap-2 py-2 px-4 rounded-full glass hover:scale-105 transition-all duration-300",
-        "border border-white/20 text-white font-medium",
-        "animate-pulse-soft hover:animate-none",
+        "flex items-center gap-2 py-2.5 px-5 rounded-full glass hover:scale-105 transition-all duration-300",
+        "border border-white/30 text-white font-medium shadow-lg",
+        "hover:shadow-s4-blue/20 hover:border-white/50",
         className
       )}
     >

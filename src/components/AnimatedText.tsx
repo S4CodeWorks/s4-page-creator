@@ -23,8 +23,8 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
         <span
           key={index}
           className={cn(
-            "inline-block animate-slide-up opacity-0",
-            textGradient && "s4-gradient-text"
+            "inline-block animate-slide-up opacity-0 text-shadow",
+            textGradient ? "s4-gradient-text" : "text-white"
           )}
           style={{
             animationDelay: `${delay + index * 0.05}s`,
