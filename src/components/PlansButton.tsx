@@ -8,8 +8,16 @@ interface PlansButtonProps {
 }
 
 const PlansButton: React.FC<PlansButtonProps> = ({ className }) => {
+  const scrollToPlans = () => {
+    const plansSection = document.getElementById('plans');
+    if (plansSection) {
+      plansSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <button
+      onClick={scrollToPlans}
       className={cn(
         "relative group overflow-hidden rounded-full py-3.5 px-7",
         "bg-gradient-to-r from-s4-blue via-s4-purple to-s4-pink",

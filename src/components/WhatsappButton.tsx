@@ -6,9 +6,14 @@ import { MessageCircle } from "lucide-react";
 interface WhatsappButtonProps {
   phoneNumber: string;
   className?: string;
+  text?: string;
 }
 
-const WhatsappButton: React.FC<WhatsappButtonProps> = ({ phoneNumber, className }) => {
+const WhatsappButton: React.FC<WhatsappButtonProps> = ({ 
+  phoneNumber, 
+  className,
+  text = "Contato" 
+}) => {
   const formattedNumber = phoneNumber.replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${formattedNumber}`;
   
@@ -25,7 +30,7 @@ const WhatsappButton: React.FC<WhatsappButtonProps> = ({ phoneNumber, className 
       )}
     >
       <MessageCircle size={20} className="text-green-500" />
-      <span>Contato</span>
+      <span>{text}</span>
     </a>
   );
 };
