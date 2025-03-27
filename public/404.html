@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S4 CodeWorks - Página não encontrada</title>
+    <meta name="description" content="Página não encontrada - S4 CodeWorks" />
+    <meta name="author" content="S4 CodeWorks" />
+    <script>
+      // Redirect to index.html to handle routing via React Router
+      const segment = window.location.pathname.split('/').pop();
+      window.location.href = window.location.origin + window.location.pathname.replace(segment, '') + 'index.html';
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando...</p>
+  </body>
+</html>
